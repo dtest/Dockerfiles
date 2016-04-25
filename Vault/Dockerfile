@@ -1,17 +1,7 @@
-FROM ubuntu:14.04
+FROM dtestops/base
 MAINTAINER downey@pythian.com
 
-RUN deps=' \
-    curl \
-    ca-certificates \
-    unzip \
-  ' \
-  && set -x \
-  && apt-get update \
-  && apt-get install -y --no-install-recommends $deps \
-  && rm -rf /var/lib/apt/lists/*
-
-ENV VAULT_VERSION=0.3.1
+ENV VAULT_VERSION=0.5.2
 
 ADD hashicorp.gpg /tmp/hashicorp.gpg
 
