@@ -1,7 +1,7 @@
 FROM dtestops/base
 MAINTAINER downey@pythian.com
 
-ENV PROXYSQL_VERSION=1.2.1
+ENV PROXYSQL_VERSION=1.3.4
 
 # TODO: be able to gpg verify download
 RUN cd /tmp \
@@ -12,11 +12,18 @@ RUN cd /tmp \
 
 ADD proxysql.cnf /etc/proxysql.cnf
 
-RUN apt-get update && apt-get install -y \
-  mysql-client-5.6 \
-  && \
-  apt-get clean && \
-  rm -rf /var/lib/apt/lists/
+RUN deps=' \
+    mysql-client-5.6 \
+    libmysqlclient-dev \
+    zlib1g-dev \
+    git \
+  ' \
+  && set -x \
+  && apt-get update \
+  && apt-get install -y --no-install-recommends $deps \
+  && rm -rf /var/lib/apt/lists/*
+
+RUN pip install MySQL-python
 
 EXPOSE 6032
 
