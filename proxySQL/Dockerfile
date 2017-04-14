@@ -1,7 +1,7 @@
 FROM dtestops/base
 MAINTAINER downey@pythian.com
 
-ENV PROXYSQL_VERSION=1.3.4
+ENV PROXYSQL_VERSION=1.3.5
 
 # TODO: be able to gpg verify download
 RUN cd /tmp \
