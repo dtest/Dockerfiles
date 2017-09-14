@@ -1,4 +1,4 @@
-datadir="/tmp"
+datadir="/var/lib/proxysql"
 
 admin_variables =
 {

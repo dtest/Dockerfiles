@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 MAINTAINER dtestops@gmail.com
 
-ENV PROXYSQL_VERSION=1.4.1
+ENV PROXYSQL_VERSION=1.4.2
 
 RUN deps=' \
     curl \
