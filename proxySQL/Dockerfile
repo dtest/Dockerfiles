@@ -1,13 +1,14 @@
 FROM ubuntu:16.04
 MAINTAINER dtestops@gmail.com
 
-ENV PROXYSQL_VERSION=1.4.2
+ENV PROXYSQL_VERSION=1.4.3
 
 RUN deps=' \
     curl \
     ca-certificates \
     mysql-client-5.7 \
     python-mysqldb \
+    git \
   ' \
   && set -x \
   && apt-get update \
